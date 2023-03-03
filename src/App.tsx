@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import { PrivateRoute } from "./utils/router/privateRoute";
+import { HomePage } from "./pages/HomePage";
+import { AuthPage } from "./pages/AuthPage";
+import { Container, Box } from "@mui/material";
 
-export default App;
+export const App = () => {
+	return (
+		<Box
+			sx={{
+				display: "flex",
+				flexDirection: "column",
+				minHeight: "100vh",
+			}}
+		>
+			<Container sx={{ flex: 1 }}>
+				<Routes>
+					<Route element={<PrivateRoute />}>
+						<Route path="/" element={<HomePage />} />
+					</Route>
+
+					<Route path="/login" element={<AuthPage />} />
+					<Route path="/register" element={<AuthPage />} />
+				</Routes>
+			</Container>
+		</Box>
+	);
+};
