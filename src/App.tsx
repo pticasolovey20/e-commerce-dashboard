@@ -9,7 +9,7 @@ import { HomePage } from "./pages/HomePage";
 import { WatchListPage } from "./pages/WatchListPage";
 import { NewsPage } from "./pages/NewsPage";
 import { SettingsPage } from "./pages/SettingsPage";
-import { PrivateRoute } from "./utils/router/privateRoute";
+import { PrivateRoute } from "./components/private-route";
 import { AuthPage } from "./pages/AuthPage";
 
 export const App = () => {

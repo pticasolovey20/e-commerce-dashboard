@@ -1,26 +1,17 @@
-import { useContext } from "react";
+import { FC, useContext } from "react";
 import { ColorModeContext } from "../../theme";
 import { useStyles } from "./styles";
 
-import {
-	AppBar,
-	Box,
-	Grid,
-	IconButton,
-	InputBase,
-	Toolbar,
-	Typography,
-	useTheme,
-} from "@mui/material";
-import { SvgSelector } from "../SvgSelector";
-import { FlexBetween } from "../flex-between/FlexBetween";
+import { AppBar, Box, Grid, IconButton, InputBase, Toolbar, Typography, useTheme } from "@mui/material";
+import { SvgSelector } from "../svg-selector";
+import { FlexBetween } from "../flex-between";
 
-interface PropsParams {
+interface PropsTypes {
 	isOpen: boolean;
-	setIsOpen: any;
+	setIsOpen: (value: boolean) => void;
 }
 
-export const TopBar = ({ isOpen, setIsOpen }: PropsParams) => {
+export const TopBar: FC<PropsTypes> = ({ isOpen, setIsOpen }: PropsTypes): JSX.Element => {
 	const theme = useTheme();
 	const colorMode: any = useContext(ColorModeContext);
 	const classes = useStyles();
@@ -38,15 +29,8 @@ export const TopBar = ({ isOpen, setIsOpen }: PropsParams) => {
 				</FlexBetween>
 				<Box display="flex">
 					<Grid className={classes.iconBlock}>
-						<IconButton
-							className={classes.themeIcon}
-							onClick={colorMode.toggleColorMode}
-						>
-							{theme.palette.mode === "dark" ? (
-								<SvgSelector icon="dark" />
-							) : (
-								<SvgSelector icon="ligth" />
-							)}
+						<IconButton className={classes.themeIcon} onClick={colorMode.toggleColorMode}>
+							{theme.palette.mode === "dark" ? <SvgSelector icon="dark" /> : <SvgSelector icon="ligth" />}
 						</IconButton>
 						<IconButton>
 							<SvgSelector icon="notification" />

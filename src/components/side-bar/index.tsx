@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useStyles } from "./styles";
 import { navigateMenu } from "../../moks/navigate";
@@ -15,18 +15,18 @@ import {
 	Typography,
 	useTheme,
 } from "@mui/material";
-import { FlexBetween } from "../flex-between/FlexBetween";
-import { SvgSelector } from "../SvgSelector";
+import { FlexBetween } from "../flex-between";
+import { SvgSelector } from "../svg-selector";
 import Logo from "../../assets/images/sidebar/logo.svg";
 
-interface PropsParams {
+interface PropsTypes {
 	isNoneMobile: boolean;
 	drawerWidth: string;
 	isOpen: boolean;
-	setIsOpen: any;
+	setIsOpen: (value: boolean) => void;
 }
 
-export const SideBar = ({ isNoneMobile, drawerWidth, isOpen, setIsOpen }: PropsParams) => {
+export const SideBar: FC<PropsTypes> = ({ isNoneMobile, drawerWidth, isOpen, setIsOpen }: PropsTypes): JSX.Element => {
 	const [active, setActive] = useState("");
 	const { pathname } = useLocation();
 	const navigate = useNavigate();
@@ -73,10 +73,7 @@ export const SideBar = ({ isNoneMobile, drawerWidth, isOpen, setIsOpen }: PropsP
 						<List className={classes.navList}>
 							{navigateMenu.map((item) => (
 								<ListItem key={item.id}>
-									<ListItemButton
-										className={classes.navItem}
-										onClick={() => navigate(item.path)}
-									>
+									<ListItemButton className={classes.navItem} onClick={() => navigate(item.path)}>
 										<ListItemIcon>
 											<SvgSelector icon={item.icon} />
 										</ListItemIcon>

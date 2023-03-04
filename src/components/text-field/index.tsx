@@ -1,7 +1,7 @@
-import React from "react";
+import { FC } from "react";
 import { Box, FormControl, TextField } from "@mui/material";
 
-interface PropsParams {
+interface PropsTypes {
 	label?: string;
 	type?: string;
 	placeholder?: string;
@@ -9,7 +9,13 @@ interface PropsParams {
 	value?: string;
 }
 
-export const TextFieldComponent = ({ label, placeholder, type, onChange, value }: PropsParams) => {
+export const TextFieldComponent: FC<PropsTypes> = ({
+	label,
+	placeholder,
+	type,
+	onChange,
+	value,
+}: PropsTypes): JSX.Element => {
 	return (
 		<Box mb={2} width="100%">
 			<FormControl fullWidth size="small">

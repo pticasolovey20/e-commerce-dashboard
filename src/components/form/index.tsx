@@ -1,17 +1,23 @@
-import React, { useState } from "react";
+import { FC, useState } from "react";
+import { useStyles } from "./styles";
 
 import { Box, Typography, Button } from "@mui/material";
-import { TextFieldComponent } from "./TextFieldComponent";
+import { TextFieldComponent } from "../text-field";
 
-interface PropsParam {
+interface PropsTypes {
 	handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
 	typographyText: string;
 	buttonText: string;
 }
 
-export const FormComponent = ({ handleSubmit, typographyText, buttonText }: PropsParam) => {
+export const FormComponent: FC<PropsTypes> = ({
+	handleSubmit,
+	typographyText,
+	buttonText,
+}: PropsTypes): JSX.Element => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+	const classes = useStyles();
 
 	const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		setEmail(event.target.value);
@@ -22,15 +28,9 @@ export const FormComponent = ({ handleSubmit, typographyText, buttonText }: Prop
 	};
 
 	return (
-		<Box
-			sx={{
-				padding: "40px",
-				borderRadius: "10px",
-				boxShadow: "5px 5px 10px #ccc",
-			}}
-		>
+		<Box className={classes.root}>
 			<form onSubmit={handleSubmit}>
-				<Typography variant="h4" fontFamily="Montserrat" align="center" mb={1}>
+				<Typography variant="h4" className={classes.greeding}>
 					{typographyText}
 				</Typography>
 				<TextFieldComponent
@@ -47,12 +47,7 @@ export const FormComponent = ({ handleSubmit, typographyText, buttonText }: Prop
 					value={password}
 					onChange={handlePasswordChange}
 				/>
-				<Button
-					fullWidth
-					variant="contained"
-					type="submit"
-					sx={{ fontFamily: "Montserrat" }}
-				>
+				<Button fullWidth variant="contained" type="submit">
 					{buttonText}
 				</Button>
 			</form>
