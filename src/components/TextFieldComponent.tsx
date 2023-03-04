@@ -2,11 +2,11 @@ import React from "react";
 import { Box, FormControl, TextField } from "@mui/material";
 
 interface PropsParams {
-	label: string;
-	type: string;
-	placeholder: string;
-	onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-	value: string;
+	label?: string;
+	type?: string;
+	placeholder?: string;
+	onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+	value?: string;
 }
 
 export const TextFieldComponent = ({ label, placeholder, type, onChange, value }: PropsParams) => {
