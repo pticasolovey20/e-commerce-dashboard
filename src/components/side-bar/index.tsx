@@ -34,7 +34,7 @@ export const SideBar: FC<PropsTypes> = ({ isNoneMobile, drawerWidth, isOpen, set
 	const classes = useStyles();
 
 	useEffect(() => {
-		setActive(pathname.substring(1));
+		setActive(pathname);
 	}, [pathname]);
 
 	return (
@@ -73,7 +73,14 @@ export const SideBar: FC<PropsTypes> = ({ isNoneMobile, drawerWidth, isOpen, set
 						<List className={classes.navList}>
 							{navigateMenu.map((item) => (
 								<ListItem key={item.id}>
-									<ListItemButton className={classes.navItem} onClick={() => navigate(item.path)}>
+									<ListItemButton
+										className={
+											active === item.path
+												? `${classes.navItem} ${classes.active}`
+												: classes.navItem
+										}
+										onClick={() => navigate(item.path)}
+									>
 										<ListItemIcon>
 											<SvgSelector icon={item.icon} />
 										</ListItemIcon>
