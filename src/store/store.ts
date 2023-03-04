@@ -1,6 +1,7 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
+import coinsReducer from "./slices/coinsSlice";
 
-const rootReducer = combineReducers({});
+const rootReducer = combineReducers({ coinsReducer });
 
 export const store = configureStore({ reducer: rootReducer });
 
