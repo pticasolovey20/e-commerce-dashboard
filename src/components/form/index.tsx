@@ -1,20 +1,15 @@
 import { FC, useState } from "react";
 import { useStyles } from "./styles";
+import { IFormProps } from "../../types/IFormProps";
 
 import { Box, Typography, Button } from "@mui/material";
 import { TextFieldComponent } from "../text-field";
 
-interface PropsTypes {
-	handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
-	typographyText: string;
-	buttonText: string;
-}
-
-export const FormComponent: FC<PropsTypes> = ({
+export const FormComponent: FC<IFormProps> = ({
 	handleSubmit,
 	typographyText,
 	buttonText,
-}: PropsTypes): JSX.Element => {
+}: IFormProps): JSX.Element => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const classes = useStyles();

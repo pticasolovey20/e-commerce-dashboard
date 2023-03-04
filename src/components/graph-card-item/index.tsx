@@ -1,17 +1,16 @@
 import { FC } from "react";
 import { useStyles } from "./styles";
+import { IGraphCardProps } from "../../types/IGraphCardProps";
 
 import { Box, Grid, Typography } from "@mui/material";
+import { AreaChart } from "../area-chart";
 
-interface PropsTypes {
-	item: any;
-}
-
-export const GraphCardItem: FC<PropsTypes> = ({ item }: PropsTypes): JSX.Element => {
+export const GraphCardItem: FC<IGraphCardProps> = ({ item }: IGraphCardProps): JSX.Element => {
 	const classes = useStyles();
 
 	const currentPrice = item.data.prices[0];
 	const currentCap = item.data.market_caps[0];
+
 	return (
 		<Grid item xs={12} md={6} lg={6} key={item.name}>
 			<Grid container className={classes.graphItem}>
@@ -27,7 +26,7 @@ export const GraphCardItem: FC<PropsTypes> = ({ item }: PropsTypes): JSX.Element
 					</Box>
 				</Grid>
 				<Grid item xs={12} md={6} lg={6}>
-					<h5>Chart</h5>
+					<AreaChart prices={item.data.prices} />
 				</Grid>
 			</Grid>
 		</Grid>

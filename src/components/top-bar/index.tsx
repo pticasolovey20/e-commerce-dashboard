@@ -1,17 +1,13 @@
 import { FC, useContext } from "react";
 import { ColorModeContext } from "../../theme";
 import { useStyles } from "./styles";
+import { ITopBarProps } from "../../types/ITopBarProps";
 
 import { AppBar, Box, Grid, IconButton, InputBase, Toolbar, Typography, useTheme } from "@mui/material";
 import { SvgSelector } from "../svg-selector";
 import { FlexBetween } from "../flex-between";
 
-interface PropsTypes {
-	isOpen: boolean;
-	setIsOpen: (value: boolean) => void;
-}
-
-export const TopBar: FC<PropsTypes> = ({ isOpen, setIsOpen }: PropsTypes): JSX.Element => {
+export const TopBar: FC<ITopBarProps> = ({ isOpen, setIsOpen }: ITopBarProps): JSX.Element => {
 	const theme = useTheme();
 	const colorMode: any = useContext(ColorModeContext);
 	const classes = useStyles();

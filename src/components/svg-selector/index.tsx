@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { ISvgSelectorProps } from "../../types/ISvgSelectorProps";
 import {
 	Menu,
 	DarkMode,
@@ -14,11 +15,7 @@ import {
 	LogoutOutlined,
 } from "@mui/icons-material";
 
-interface PropsTypes {
-	icon: string;
-}
-
-export const SvgSelector: FC<PropsTypes> = ({ icon }: PropsTypes): JSX.Element | null => {
+export const SvgSelector: FC<ISvgSelectorProps> = ({ icon }: ISvgSelectorProps): JSX.Element | null => {
 	switch (icon) {
 		case "menu":
 			return <Menu />;

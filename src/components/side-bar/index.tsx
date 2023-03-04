@@ -2,6 +2,7 @@ import { FC, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useStyles } from "./styles";
 import { navigateMenu } from "../../moks/navigate";
+import { ISideBarProps } from "../../types/ISideBarProps";
 
 import {
 	Box,
@@ -19,14 +20,12 @@ import { FlexBetween } from "../flex-between";
 import { SvgSelector } from "../svg-selector";
 import Logo from "../../assets/images/sidebar/logo.svg";
 
-interface PropsTypes {
-	isNoneMobile: boolean;
-	drawerWidth: string;
-	isOpen: boolean;
-	setIsOpen: (value: boolean) => void;
-}
-
-export const SideBar: FC<PropsTypes> = ({ isNoneMobile, drawerWidth, isOpen, setIsOpen }: PropsTypes): JSX.Element => {
+export const SideBar: FC<ISideBarProps> = ({
+	isNoneMobile,
+	drawerWidth,
+	isOpen,
+	setIsOpen,
+}: ISideBarProps): JSX.Element => {
 	const [active, setActive] = useState("");
 	const { pathname } = useLocation();
 	const navigate = useNavigate();

@@ -17,7 +17,7 @@ interface CoinsState {
 
 export const fetchFavoriteCoins = createAsyncThunk("coins/fetchFavoriteCoins", async (params: string, thunkAPI) => {
 	try {
-		const { data } = await axios.get(BASE_URL + `coins/${params}/market_chart?vs_currency=usd&days=1`);
+		const { data } = await axios.get(BASE_URL + `coins/${params}/market_chart?vs_currency=usd&days=90`);
 		return {
 			name: params,
 			data,

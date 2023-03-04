@@ -1,21 +1,15 @@
 import { FC } from "react";
+import { ITextFieldProps } from "../../types/ITextFieldProps";
+
 import { Box, FormControl, TextField } from "@mui/material";
 
-interface PropsTypes {
-	label?: string;
-	type?: string;
-	placeholder?: string;
-	onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-	value?: string;
-}
-
-export const TextFieldComponent: FC<PropsTypes> = ({
+export const TextFieldComponent: FC<ITextFieldProps> = ({
 	label,
 	placeholder,
 	type,
 	onChange,
 	value,
-}: PropsTypes): JSX.Element => {
+}: ITextFieldProps): JSX.Element => {
 	return (
 		<Box mb={2} width="100%">
 			<FormControl fullWidth size="small">

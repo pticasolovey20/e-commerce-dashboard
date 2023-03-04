@@ -1,7 +1,8 @@
+import { FC } from "react";
 import { FormComponent } from "../../components/form";
 import { RedirectAuthButton } from "../../components/redicrect-button";
 
-export const RegisterPage = () => {
+export const RegisterPage: FC = (): JSX.Element => {
 	const handleRegister = (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
 	};

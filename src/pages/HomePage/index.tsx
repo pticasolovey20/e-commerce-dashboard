@@ -1,25 +1,21 @@
-import { useEffect, useRef, useCallback, useMemo } from "react";
+import { FC, useEffect, useRef, useCallback, useMemo } from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import { fetchFavoriteCoins } from "../../store/slices/coinsSlice";
 import { useStyles } from "./styles";
+import { ICoin } from "../../types/ICoin";
 
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import { GraphCardItem } from "../../components/graph-card-item";
 
-export const HomePage = () => {
+export const HomePage: FC = (): JSX.Element => {
 	const dispatch = useAppDispatch();
 	const { favoriteCoins } = useAppSelector((state) => state.coinsReducer);
 	const fetchDataRef = useRef(false);
 	const classes = useStyles();
 
-	interface Coin {
-		name: string;
-		price: number;
-	}
-
 	const coinArray = useMemo(() => ["bitcoin", "ethereum"], []);
 
-	const filteredArray: Coin[] = favoriteCoins.reduce((acc: Coin[], curr: Coin) => {
+	const filteredArray: ICoin[] = favoriteCoins.reduce((acc: ICoin[], curr: ICoin) => {
 		if (!acc.some((coin) => coin.name === curr.name)) acc.push(curr);
 		return acc;
 	}, []);

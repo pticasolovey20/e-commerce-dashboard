@@ -41,6 +41,10 @@ export const useStyles = makeStyles((theme: Theme) => {
 			backgroundColor: "#1900D5 !important",
 			color: "#fff !important",
 			borderRadius: "4px !important",
+
+			"& .MuiSvgIcon-root": {
+				color: "#fff",
+			},
 		},
 	};
 });
