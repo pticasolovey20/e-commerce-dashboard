@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
 import { useStyles } from "./styles";
-import { IFormProps } from "../../types/IFormProps";
+import { IFormProps } from "../../types/props/IFormProps";
 
 import { Box, Typography, Button } from "@mui/material";
 import { TextFieldComponent } from "../text-field";

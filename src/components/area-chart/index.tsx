@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { formatDate } from "../../utils/format-date";
-import { IAreaChartProps } from "../../types/IAreaChartProps";
+import { IAreaChartProps } from "../../types/coins";
 
 import {
 	Chart as ChartJS,

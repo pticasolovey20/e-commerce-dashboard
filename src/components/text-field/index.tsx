@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { ITextFieldProps } from "../../types/ITextFieldProps";
+import { ITextFieldProps } from "../../types/props/ITextFieldProps";
 
 import { Box, FormControl, TextField } from "@mui/material";
 

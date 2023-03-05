@@ -1,17 +1,8 @@
 import { Theme } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import { tokens } from "../../theme";
 
 export const useStyles = makeStyles((theme: Theme) => {
-	const colors = tokens(theme.palette.mode);
 	return {
-		graphItem: {
-			backgroundColor: `${theme.palette.mode === "light" ? colors.primary.DEFAULT : colors.primary[600]}`,
-			padding: "20px 16px",
-			minHeight: 185,
-			border: `1px solid ${colors.borderColor}`,
-			borderRadius: 12,
-		},
 		coinName: {
 			fontSize: 25,
 			fontWeight: 600,

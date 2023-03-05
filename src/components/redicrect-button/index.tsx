@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { useStyles } from "./styles";
-import { IRedirectButtonProps } from "../../types/IRedirectButtonProps";
+import { IRedirectButtonProps } from "../../types/props/IRedirectButtonProps";
 
 import { Box, Typography, Button } from "@mui/material";
 import { Link } from "react-router-dom";

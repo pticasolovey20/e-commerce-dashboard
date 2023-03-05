@@ -1,7 +1,7 @@
 import { FC, useContext } from "react";
 import { ColorModeContext } from "../../theme";
 import { useStyles } from "./styles";
-import { ITopBarProps } from "../../types/ITopBarProps";
+import { ITopBarProps } from "../../types/props/ITopBarProps";
 
 import { AppBar, Box, Grid, IconButton, InputBase, Toolbar, Typography, useTheme } from "@mui/material";
 import { SvgSelector } from "../svg-selector";

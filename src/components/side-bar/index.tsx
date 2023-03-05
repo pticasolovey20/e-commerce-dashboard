@@ -2,7 +2,7 @@ import { FC, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useStyles } from "./styles";
 import { navigateMenu } from "../../moks/navigate";
-import { ISideBarProps } from "../../types/ISideBarProps";
+import { ISideBarProps } from "../../types/props/ISideBarProps";
 
 import {
 	Box,
