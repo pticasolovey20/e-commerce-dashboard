@@ -10,6 +10,12 @@ export const useStyles = makeStyles((theme: Theme) => {
 			padding: "20px 16px",
 			border: `1px solid ${colors.borderColor}`,
 			borderRadius: 12,
+			marginBottom: 32,
+			"& .MuiPaper-root": {
+				backgroundColor: "transparent !important",
+				boxShadow: "none !important",
+				backgroundImage: "none !important",
+			},
 		},
 	};
 });

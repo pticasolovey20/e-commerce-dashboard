@@ -5,10 +5,7 @@ export const useStyles = makeStyles((theme: Theme) => {
 	return {
 		root: {
 			flexGrow: 1,
-			padding: "32px",
-		},
-		areaChart: {
-			marginBottom: 32,
+			padding: "32px 32px 0px 32px",
 		},
 	};
 });

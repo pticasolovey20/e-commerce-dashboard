@@ -8,6 +8,7 @@ export const useStyles = makeStyles((theme: Theme) => {
 			fontWeight: 600,
 			lineHeight: "30px",
 			textTransform: "capitalize",
+			textAlign: "right",
 		},
 		itemDetails: {
 			display: "flex",
@@ -21,22 +22,7 @@ export const useStyles = makeStyles((theme: Theme) => {
 			fontWeight: 700,
 			lineHeight: "48px",
 			marginBottom: "5px !important",
-		},
-		priceTrend: {
-			display: "flex",
-			width: "90px",
-			alignItems: "center",
-			gap: "5px",
-			padding: "5px 8px",
-			borderRadius: 4,
-		},
-		trendUp: {
-			backgroundColor: "#A9FFA7",
-			color: "#037400",
-		},
-		trendDown: {
-			backgroundColor: "#FFA7A7",
-			color: "#740000",
+			textAlign: "right",
 		},
 	};
 });

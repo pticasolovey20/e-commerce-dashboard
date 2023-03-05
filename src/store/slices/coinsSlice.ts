@@ -22,6 +22,19 @@ export const fetchFavoriteCoins = createAsyncThunk("coins/fetchFavoriteCoins", a
 	}
 });
 
+export const getTopPrice = createAsyncThunk("coins/markets/topPrice", async (_, thunkAPI) => {
+	try {
+		const coins = await axios.get(
+			BASE_URL + `coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false`
+		);
+		return coins.data;
+	} catch (error) {
+		if (error instanceof AxiosError) {
+			return thunkAPI.rejectWithValue(error.message);
+		}
+	}
+});
+
 const initialState: any = {
 	coins: [],
 	favoriteCoins: [],
@@ -44,6 +57,9 @@ const coinsSlice = createSlice({
 		builder.addCase(fetchFavoriteCoins.rejected, (state, action) => {
 			state.loading = false;
 			state.error = action.payload;
+		});
+		builder.addCase(getTopPrice.fulfilled, (state, action) => {
+			state.coins = action.payload;
 		});
 	},
 });

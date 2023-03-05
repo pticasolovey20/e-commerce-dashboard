@@ -10,6 +10,10 @@ export interface ILineChartProps {
 	data: IChartData[];
 }
 
+export interface ITopPrice {
+	coins: ISingleCoin[];
+}
+
 export interface ISingleCoin {
 	id: string;
 	symbol: string;
