@@ -16,11 +16,13 @@ import {
 	Typography,
 	useTheme,
 } from "@mui/material";
-import { FlexBetween } from "../flex-between";
-import { SvgSelector } from "../svg-selector";
+import { FlexBetweenComponent } from "../flex-between";
+import { SvgSelectorComponent } from "../svg-selector";
 import Logo from "../../assets/images/sidebar/logo.svg";
+import { ThemeSwitcherComponent } from "../theme-switcher";
+import { SearchBarComponent } from "../search-bar";
 
-export const SideBar: FC<ISideBarProps> = ({
+export const SideBarComponent: FC<ISideBarProps> = ({
 	isNoneMobile,
 	drawerWidth,
 	isOpen,
@@ -55,7 +57,7 @@ export const SideBar: FC<ISideBarProps> = ({
 				>
 					<Box className={classes.navBlock}>
 						<Box>
-							<FlexBetween>
+							<FlexBetweenComponent>
 								<Box className={classes.brand}>
 									<img src={Logo} alt="logo" />
 									<Typography variant="h1" className={classes.brandTitle}>
@@ -64,11 +66,16 @@ export const SideBar: FC<ISideBarProps> = ({
 								</Box>
 								{!isNoneMobile && (
 									<IconButton onClick={() => setIsOpen(!isOpen)}>
-										<SvgSelector icon="chevron-left" />
+										<SvgSelectorComponent icon="chevron-left" />
 									</IconButton>
 								)}
-							</FlexBetween>
+							</FlexBetweenComponent>
 						</Box>
+						{!isNoneMobile && (
+							<ListItem>
+								<SearchBarComponent />
+							</ListItem>
+						)}
 						<List className={classes.navList}>
 							{navigateMenu.map((item) => (
 								<ListItem key={item.id}>
@@ -81,7 +88,7 @@ export const SideBar: FC<ISideBarProps> = ({
 										onClick={() => navigate(item.path)}
 									>
 										<ListItemIcon>
-											<SvgSelector icon={item.icon} />
+											<SvgSelectorComponent icon={item.icon} />
 										</ListItemIcon>
 										<ListItemText>
 											<Typography variant="body1">{item.name}</Typography>
@@ -93,10 +100,17 @@ export const SideBar: FC<ISideBarProps> = ({
 					</Box>
 					<Box width="100%">
 						<List>
+							{!isNoneMobile && (
+								<ListItem>
+									<Box padding="5px">
+										<ThemeSwitcherComponent />
+									</Box>
+								</ListItem>
+							)}
 							<ListItem>
 								<ListItemButton className={classes.navItem}>
 									<ListItemIcon>
-										<SvgSelector icon="logout" />
+										<SvgSelectorComponent icon="logout" />
 									</ListItemIcon>
 									<ListItemText>
 										<Typography>Log out</Typography>

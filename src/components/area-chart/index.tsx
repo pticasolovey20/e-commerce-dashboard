@@ -18,7 +18,7 @@ import { Line } from "react-chartjs-2";
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Filler, Legend);
 
-export const AreaChart: FC<IAreaChartProps> = ({ prices }: IAreaChartProps): JSX.Element => {
+export const AreaChartComponent: FC<IAreaChartProps> = ({ prices }: IAreaChartProps): JSX.Element => {
 	const options = {
 		responsive: true,
 		scales: {

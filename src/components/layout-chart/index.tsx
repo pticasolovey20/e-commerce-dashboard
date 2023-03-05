@@ -1,13 +1,10 @@
-import { FC, ReactNode } from "react";
+import { FC } from "react";
 import { useStyles } from "./styles";
+import { ILayoutChartProps } from "../../types/props/ILayoutChartProps";
 
 import { Grid } from "@mui/material";
 
-interface ILayoutChartProps {
-	children: ReactNode;
-}
-
-export const LayoutChart: FC<ILayoutChartProps> = ({ children }: ILayoutChartProps): JSX.Element => {
+export const LayoutChartComponent: FC<ILayoutChartProps> = ({ children }: ILayoutChartProps): JSX.Element => {
 	const classes = useStyles();
 
 	return (

@@ -1,16 +1,12 @@
 import { FC } from "react";
 import { useStyles } from "./styles";
+import { ITrendProps } from "../../types/props/ITrendProps";
 
 import { Box, Typography } from "@mui/material";
 import TrendUp from "../../assets/images/graph-card-item/trend-up.svg";
 import TrendDown from "../../assets/images/graph-card-item/trend-down.svg";
 
-interface PropsTypes {
-	value: any;
-	symbol: string;
-}
-
-export const Trend: FC<PropsTypes> = ({ value, symbol }: PropsTypes): JSX.Element => {
+export const TrendComponent: FC<ITrendProps> = ({ value, symbol }: ITrendProps): JSX.Element => {
 	const classes = useStyles();
 
 	return (

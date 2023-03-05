@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { FormComponent } from "../../components/form";
-import { RedirectAuthButton } from "../../components/redicrect-button";
+import { RedirectAuthButtonComponent } from "../../components/redicrect-button";
 
 export const RegisterPage: FC = (): JSX.Element => {
 	const handleRegister = (event: React.FormEvent<HTMLFormElement>) => {
@@ -10,7 +10,7 @@ export const RegisterPage: FC = (): JSX.Element => {
 	return (
 		<>
 			<FormComponent handleSubmit={handleRegister} typographyText="Welcome there!" buttonText="Sign Up" />
-			<RedirectAuthButton typographyText="Do you have an account?" route="/login" buttonText="Login" />
+			<RedirectAuthButtonComponent typographyText="Do you have an account?" route="/login" buttonText="Login" />
 		</>
 	);
 };

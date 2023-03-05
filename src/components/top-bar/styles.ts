@@ -19,33 +19,24 @@ export const useStyles = makeStyles((theme: Theme) => {
 			justifyContent: "space-between",
 			padding: "25px 45px",
 		},
+		left: {
+			display: "flex",
+			justifyContent: "flex-start",
+			alignItems: "center",
+		},
 		menuIcon: {
 			marginRight: "25px !important",
 		},
 		greeding: {
 			color: `${theme.palette.mode === "dark" ? colors.white.DEFAULT : colors.black.DEFAULT}`,
 		},
-		iconBlock: {
-			paddingRight: "37px",
-			borderRight: `1px solid ${colors.borderColor}`,
-		},
-		themeIcon: {
-			marginRight: "45px !important",
-		},
-		searchBlock: {
+		right: {
 			display: "flex",
-			maxHeight: "45px",
-			borderRadius: "8px",
-			marginLeft: "28px",
-			backgroundColor: `${colors.primary[600]}`,
+			justifyContent: "flex-end",
 		},
-		searchIcon: {
-			"&:hover": {
-				backgroundColor: "transparent !important",
-			},
-		},
-		searchInput: {
-			padding: "12px 18px",
+		search: {
+			width: "300px",
+			paddingRight: "10px",
 		},
 	};
 });

@@ -1,44 +1,37 @@
-import { FC, useContext } from "react";
-import { ColorModeContext } from "../../theme";
+import { FC } from "react";
 import { useStyles } from "./styles";
 import { ITopBarProps } from "../../types/props/ITopBarProps";
 
-import { AppBar, Box, Grid, IconButton, InputBase, Toolbar, Typography, useTheme } from "@mui/material";
-import { SvgSelector } from "../svg-selector";
-import { FlexBetween } from "../flex-between";
+import { AppBar, Box, Grid, IconButton, Toolbar, Typography } from "@mui/material";
+import { SvgSelectorComponent } from "../svg-selector";
+import { ThemeSwitcherComponent } from "../theme-switcher";
+import { SearchBarComponent } from "../search-bar";
 
-export const TopBar: FC<ITopBarProps> = ({ isOpen, setIsOpen }: ITopBarProps): JSX.Element => {
-	const theme = useTheme();
-	const colorMode: any = useContext(ColorModeContext);
+export const TopBarComponent: FC<ITopBarProps> = ({ isOpen, isNoneMobile, setIsOpen }: ITopBarProps): JSX.Element => {
 	const classes = useStyles();
 
 	return (
 		<AppBar className={classes.root} position="static">
 			<Toolbar className={classes.toolBar}>
-				<FlexBetween>
-					<IconButton className={classes.menuIcon} onClick={() => setIsOpen(!isOpen)}>
-						<SvgSelector icon="menu" />
-					</IconButton>
-					<Typography variant="h4" className={classes.greeding}>
-						Welcome Dima
-					</Typography>
-				</FlexBetween>
-				<Box display="flex">
-					<Grid className={classes.iconBlock}>
-						<IconButton className={classes.themeIcon} onClick={colorMode.toggleColorMode}>
-							{theme.palette.mode === "dark" ? <SvgSelector icon="dark" /> : <SvgSelector icon="ligth" />}
+				<Grid container justifyContent="space-between" alignItems="center">
+					<Grid item sm={3} lg={3} className={classes.left}>
+						<IconButton className={classes.menuIcon} onClick={() => setIsOpen(!isOpen)}>
+							<SvgSelectorComponent icon="menu" />
 						</IconButton>
-						<IconButton>
-							<SvgSelector icon="notification" />
-						</IconButton>
+						<Typography variant="h5" className={classes.greeding}>
+							Welcome Dima
+						</Typography>
 					</Grid>
-					<Grid className={classes.searchBlock}>
-						<IconButton className={classes.searchIcon}>
-							<SvgSelector icon="search" />
-						</IconButton>
-						<InputBase className={classes.searchInput} placeholder="Search" />
-					</Grid>
-				</Box>
+
+					{isNoneMobile && (
+						<Grid item sm={9} lg={9} className={classes.right}>
+							<ThemeSwitcherComponent />
+							<Box className={classes.search}>
+								<SearchBarComponent />
+							</Box>
+						</Grid>
+					)}
+				</Grid>
 			</Toolbar>
 		</AppBar>
 	);

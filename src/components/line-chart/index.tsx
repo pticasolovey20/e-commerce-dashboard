@@ -17,7 +17,7 @@ import { Line } from "react-chartjs-2";
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Filler, Legend);
 
-export const LineChart: FC<ILineChartProps> = ({ data }: ILineChartProps): JSX.Element => {
+export const LineChartComponent: FC<ILineChartProps> = ({ data }: ILineChartProps): JSX.Element => {
 	const options = {
 		responsive: true,
 		scales: {

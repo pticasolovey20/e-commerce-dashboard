@@ -3,11 +3,11 @@ import { useStyles } from "./styles";
 import { GraphCardProps, ISingleCoin } from "../../types/coins";
 
 import { Box, Grid, Typography } from "@mui/material";
-import { AreaChart } from "../area-chart";
-import { LayoutChart } from "../layout-chart";
-import { Trend } from "../trend";
+import { AreaChartComponent } from "../area-chart";
+import { LayoutChartComponent } from "../layout-chart";
+import { TrendComponent } from "../trend";
 
-export const GraphCardItem: FC<GraphCardProps> = ({ item }: GraphCardProps): JSX.Element => {
+export const GraphCardItemComponent: FC<GraphCardProps> = ({ item }: GraphCardProps): JSX.Element => {
 	const classes = useStyles();
 
 	let currentPrice = 0;
@@ -20,9 +20,9 @@ export const GraphCardItem: FC<GraphCardProps> = ({ item }: GraphCardProps): JSX
 
 	return (
 		<Grid item key={item.name} xs={12} sm={6} lg={6}>
-			<LayoutChart>
+			<LayoutChartComponent>
 				<Grid item xs={12} sm={6} lg={6}>
-					<AreaChart prices={item.price_chart_data} />
+					<AreaChartComponent prices={item.price_chart_data} />
 				</Grid>
 				<Grid item xs={12} sm={6} lg={6}>
 					<Typography variant="h3" className={classes.coinName}>
@@ -32,10 +32,10 @@ export const GraphCardItem: FC<GraphCardProps> = ({ item }: GraphCardProps): JSX
 						<Typography variant="h3" className={classes.cardPrice}>
 							{currentPrice}$
 						</Typography>
-						<Trend value={changePrice} symbol={"%"} />
+						<TrendComponent value={changePrice} symbol={"%"} />
 					</Box>
 				</Grid>
-			</LayoutChart>
+			</LayoutChartComponent>
 		</Grid>
 	);
 };

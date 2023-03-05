@@ -1,7 +1,7 @@
 import { styled, Box } from "@mui/material";
 
-export const FlexBetween = styled(Box)({
+export const FlexBetweenComponent = styled(Box)({
 	display: "flex",
-	justifyContent: "space-between",
+	justifyContent: "flex-start",
 	alignItems: "center",
 });

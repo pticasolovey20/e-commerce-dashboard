@@ -5,10 +5,10 @@ import { useStyles } from "./styles";
 import { IChartData, ISingleCoin } from "../../types/coins/index";
 
 import { Box, Grid } from "@mui/material";
-import { GraphCardItem } from "../../components/graph-card-item";
-import { LineChart } from "../../components/line-chart";
-import { LayoutChart } from "../../components/layout-chart";
-import { TopPrice } from "../../components/top-price";
+import { GraphCardItemComponent } from "../../components/graph-card-item";
+import { LineChartComponent } from "../../components/line-chart";
+import { LayoutChartComponent } from "../../components/layout-chart";
+import { TopPriceComponent } from "../../components/top-price";
 
 export const HomePage: FC = (): JSX.Element => {
 	const dispatch = useAppDispatch();
@@ -52,19 +52,19 @@ export const HomePage: FC = (): JSX.Element => {
 		<Box className={classes.root}>
 			<Grid container spacing={4}>
 				{filteredFavoriteCoins.map((item: IChartData) => (
-					<GraphCardItem key={item.name} item={item} />
+					<GraphCardItemComponent key={item.name} item={item} />
 				))}
 			</Grid>
-			<LayoutChart>
+			<LayoutChartComponent>
 				<Grid item xs={12} sm={12} lg={12}>
-					{filteredFavoriteCoins.length && <LineChart data={filteredFavoriteCoins} />}
+					{filteredFavoriteCoins.length && <LineChartComponent data={filteredFavoriteCoins} />}
 				</Grid>
-			</LayoutChart>
-			<LayoutChart>
+			</LayoutChartComponent>
+			<LayoutChartComponent>
 				<Grid item xs={12} sm={12} lg={12}>
-					{filteredCoins.length && <TopPrice coins={filteredCoins} />}
+					{filteredCoins.length && <TopPriceComponent coins={filteredCoins} />}
 				</Grid>
-			</LayoutChart>
+			</LayoutChartComponent>
 		</Box>
 	);
 };

@@ -5,7 +5,7 @@ import { IRedirectButtonProps } from "../../types/props/IRedirectButtonProps";
 import { Box, Typography, Button } from "@mui/material";
 import { Link } from "react-router-dom";
 
-export const RedirectAuthButton: FC<IRedirectButtonProps> = ({
+export const RedirectAuthButtonComponent: FC<IRedirectButtonProps> = ({
 	typographyText,
 	route,
 	buttonText,
