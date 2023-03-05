@@ -18,36 +18,36 @@ import { Line } from "react-chartjs-2";
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Filler, Legend);
 
-export const options = {
-	responsive: true,
-	scales: {
-		x: {
-			display: false,
-			grid: {
-				display: false,
-			},
-		},
-		y: {
-			display: false,
-			grid: {
-				display: false,
-			},
-		},
-	},
-	plugins: {
-		legend: {
-			display: false,
-		},
-	},
-};
-
 export const AreaChart: FC<IAreaChartProps> = ({ prices }: IAreaChartProps): JSX.Element => {
+	const options = {
+		responsive: true,
+		scales: {
+			x: {
+				display: false,
+				grid: {
+					display: false,
+				},
+			},
+			y: {
+				display: false,
+				grid: {
+					display: false,
+				},
+			},
+		},
+		plugins: {
+			legend: {
+				display: false,
+			},
+		},
+	};
+
 	const data = {
-		labels: prices.map((item: number[]) => formatDate(item[0])),
+		labels: prices.map((item: number[]): string => formatDate(item[0])),
 		datasets: [
 			{
 				label: "Price",
-				data: prices.map((item: number[]) => item[1]),
+				data: prices.map((item: number[]): number => item[1]),
 				fill: "start",
 				backgroundColor: (context: ScriptableContext<"line">) => {
 					const ctx = context.chart.ctx;
