@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { useStyles } from "./styles";
-import { ITopBarProps } from "../../types/props/ITopBarProps";
+import { ITopBarProps } from "../../types/props";
 
 import { AppBar, Box, Grid, IconButton, Toolbar, Typography } from "@mui/material";
 import { SvgSelectorComponent } from "../svg-selector";

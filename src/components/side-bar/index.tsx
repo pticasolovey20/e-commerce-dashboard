@@ -2,7 +2,7 @@ import { FC, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useStyles } from "./styles";
 import { navigateMenu } from "../../moks/navigate";
-import { ISideBarProps } from "../../types/props/ISideBarProps";
+import { ISideBarProps } from "../../types/props";
 
 import {
 	Box,
@@ -71,11 +71,11 @@ export const SideBarComponent: FC<ISideBarProps> = ({
 								)}
 							</FlexBetweenComponent>
 						</Box>
-						{!isNoneMobile && (
+						{/* {!isNoneMobile && (
 							<ListItem>
 								<SearchBarComponent />
 							</ListItem>
-						)}
+						)} */}
 						<List className={classes.navList}>
 							{navigateMenu.map((item) => (
 								<ListItem key={item.id}>

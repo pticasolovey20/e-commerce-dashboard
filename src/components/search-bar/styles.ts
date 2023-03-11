@@ -13,11 +13,13 @@ export const useStyles = makeStyles((theme: Theme) => {
 
 		input: {
 			width: "100%",
+
 			borderRadius: "5px",
 			border: `1px solid ${colors.borderColor} !important`,
 
 			"& .MuiOutlinedInput-root": {
 				borderTop: `1px solid ${colors.borderColor} !important`,
+				lineHeight: "50px",
 			},
 
 			"& .MuiInputLabel-root": {

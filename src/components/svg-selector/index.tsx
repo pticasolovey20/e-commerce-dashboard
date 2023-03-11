@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { ISvgSelectorProps } from "../../types/props/ISvgSelectorProps";
+import { ISvgSelectorProps } from "../../types/props";
 import {
 	Menu,
 	DarkMode,

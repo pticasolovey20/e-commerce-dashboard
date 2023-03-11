@@ -18,7 +18,7 @@ export const LayoutComponent: FC = (): JSX.Element => {
 		</>
 	) : (
 		<Box display={isNoneMobile ? "flex" : "block"} className={classes.root}>
-			<SideBarComponent isNoneMobile={isNoneMobile} drawerWidth="250px" isOpen={isOpen} setIsOpen={setIsOpen} />
+			<SideBarComponent isNoneMobile={isNoneMobile} drawerWidth="300px" isOpen={isOpen} setIsOpen={setIsOpen} />
 			<Box className={classes.mainBlock}>
 				<TopBarComponent isOpen={isOpen} setIsOpen={setIsOpen} isNoneMobile={isNoneMobile} />
 				<Outlet />

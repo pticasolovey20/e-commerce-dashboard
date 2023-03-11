@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { useStyles } from "./styles";
-import { ITrendProps } from "../../types/props/ITrendProps";
+import { ITrendProps } from "../../types/props";
 
 import { Box, Typography } from "@mui/material";
 import TrendUp from "../../assets/images/graph-card-item/trend-up.svg";
@@ -12,7 +12,7 @@ export const TrendComponent: FC<ITrendProps> = ({ value, symbol }: ITrendProps):
 	return (
 		<Box className={value > 0 ? `${classes.root} ${classes.trendUp}` : `${classes.root} ${classes.trendDown}`}>
 			{value > 0 ? <img src={TrendUp} alt="trend" /> : <img src={TrendDown} alt="trend" />}
-			<Typography>{`${Number(value).toFixed(2)}${symbol}`}</Typography>
+			<Typography>{`${value}${symbol}`}</Typography>
 		</Box>
 	);
 };

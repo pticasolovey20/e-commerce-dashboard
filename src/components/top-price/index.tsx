@@ -1,10 +1,20 @@
-import { FC } from "react";
-import { ITopPrice } from "../../types/coins";
+import { FC, useMemo } from "react";
+import { useAppSelector } from "../../hooks/redux";
+import { ICoin } from "../../types/coins";
 
 import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
 import { TrendComponent } from "../trend";
 
-export const TopPriceComponent: FC<ITopPrice> = ({ coins }: ITopPrice): JSX.Element => {
+export const TopPriceComponent: FC = (): JSX.Element => {
+	const coins: ICoin[] = useAppSelector((state) => state.coinsReducer.coins);
+
+	const filteredCoins = useMemo(() => {
+		return coins
+			.slice()
+			.sort((a, b) => b.current_price - a.current_price)
+			.slice(0, 5);
+	}, [coins]);
+
 	return (
 		<TableContainer component={Paper}>
 			<Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -17,7 +27,7 @@ export const TopPriceComponent: FC<ITopPrice> = ({ coins }: ITopPrice): JSX.Elem
 					</TableRow>
 				</TableHead>
 				<TableBody>
-					{coins.map((coin) => (
+					{filteredCoins.map((coin) => (
 						<TableRow key={coin.name} sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
 							<TableCell component="th" scope="row">
 								{coin.name}
@@ -27,7 +37,7 @@ export const TopPriceComponent: FC<ITopPrice> = ({ coins }: ITopPrice): JSX.Elem
 								<TrendComponent value={coin.price_change_percentage_24h.toFixed(2)} symbol={"%"} />
 							</TableCell>
 							<TableCell>
-								<TrendComponent value={coin.price_change_24h} symbol={"$"} />
+								<TrendComponent value={coin.price_change_24h.toFixed(0)} symbol={"$"} />
 							</TableCell>
 						</TableRow>
 					))}

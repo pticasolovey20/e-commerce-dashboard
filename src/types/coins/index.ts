@@ -1,20 +1,24 @@
 export interface GraphCardProps {
-	item: IChartData;
+	item: ICoin;
 }
 
 export interface IAreaChartProps {
 	prices: number[][];
 }
 
-export interface ILineChartProps {
-	data: IChartData[];
-}
-
 export interface ITopPrice {
-	coins: ISingleCoin[];
+	coins: ICoin[];
 }
 
-export interface ISingleCoin {
+export interface ISliceState {
+	coins: ICoin[];
+	pricesFirst: ICoinsData;
+	pricesSecond: ICoinsData;
+	loading: boolean;
+	error: string;
+}
+
+export interface ICoin {
 	id: string;
 	symbol: string;
 	name: string;
@@ -43,8 +47,7 @@ export interface ISingleCoin {
 	last_updated: string;
 }
 
-export interface IChartData {
+export interface ICoinsData {
 	name: string;
-	price_chart_data: number[][];
-	singleCoin: ISingleCoin[];
+	price_chart: number[][];
 }
