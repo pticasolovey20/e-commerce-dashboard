@@ -8,6 +8,10 @@ export const useStyles = makeStyles((theme: Theme) => {
 		item: {
 			paddingBottom: "5px",
 			borderBottom: `1px solid ${colors.borderColor}`,
+
+			"&:last-child": {
+				borderBottom: "none",
+			},
 		},
 
 		imgBlock: { marginRight: "15px !important" },

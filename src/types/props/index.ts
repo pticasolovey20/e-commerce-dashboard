@@ -1,4 +1,6 @@
+import { SelectChangeEvent } from "@mui/material";
 import { ReactNode } from "react";
+import { ICoin } from "../coins";
 import { INewsData } from "../news";
 
 export interface IFormProps {
@@ -58,4 +60,15 @@ export interface ITrendProps {
 
 export interface INewsItem {
 	item: INewsData;
+}
+
+interface IOptions {
+	name: string;
+	id: string;
+}
+
+export interface ISelectProps {
+	options: ICoin[] | IOptions[];
+	value: string;
+	onChange: (event: SelectChangeEvent<string>) => void;
 }

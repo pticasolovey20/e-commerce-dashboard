@@ -1,22 +1,52 @@
-import { FC, useMemo } from "react";
+import { FC, useMemo, useState } from "react";
 import { useAppSelector } from "../../hooks/redux";
 import { ICoin } from "../../types/coins";
+import { useStyles } from "./styles";
+import { options } from "../../moks/options";
 
-import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
+import {
+	Box,
+	Paper,
+	SelectChangeEvent,
+	Table,
+	TableBody,
+	TableCell,
+	TableContainer,
+	TableHead,
+	TableRow,
+} from "@mui/material";
 import { TrendComponent } from "../trend";
+import { SelectComponent } from "../select";
 
 export const TopPriceComponent: FC = (): JSX.Element => {
+	const [value, setValue] = useState("");
+
+	const classes = useStyles();
 	const coins: ICoin[] = useAppSelector((state) => state.coinsReducer.coins);
 
 	const filteredCoins = useMemo(() => {
-		return coins
-			.slice()
-			.sort((a, b) => b.current_price - a.current_price)
-			.slice(0, 5);
-	}, [coins]);
+		if (value === "lowest") {
+			return coins
+				.slice()
+				.sort((a, b) => a.current_price - b.current_price)
+				.slice(0, 5);
+		} else {
+			return coins
+				.slice()
+				.sort((a, b) => b.current_price - a.current_price)
+				.slice(0, 5);
+		}
+	}, [coins, value]);
+
+	const handleChange = (event: SelectChangeEvent<string>) => {
+		setValue(event.target.value);
+	};
 
 	return (
-		<TableContainer component={Paper}>
+		<TableContainer component={Paper} className={classes.root}>
+			<Box className={classes.inputBox}>
+				<SelectComponent options={options} value={value} onChange={handleChange} />
+			</Box>
 			<Table sx={{ minWidth: 650 }} aria-label="simple table">
 				<TableHead>
 					<TableRow>

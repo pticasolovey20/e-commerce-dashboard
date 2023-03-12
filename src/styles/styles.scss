@@ -7,4 +7,9 @@
 
 body {
 	height: 100vh;
+
+	&::-webkit-scrollbar {
+		width: 0em;
+		border-radius: 50px;
+	}
 }

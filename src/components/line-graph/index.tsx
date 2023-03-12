@@ -3,7 +3,7 @@ import { useStyles } from "./styles";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import { fetchPricesFirst, fetchPricesSecond } from "../../store/slices/coinsSlice";
 import { formatDate } from "../../utils/format-date";
-import { ICoinsData } from "../../types/coins";
+import { ICoin, ICoinsData } from "../../types/coins";
 
 import { Box, Grid, SelectChangeEvent } from "@mui/material";
 import { SelectComponent } from "../select";
@@ -24,6 +24,7 @@ ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, T
 
 export const LineGraphComponent: FC = (): JSX.Element => {
 	const classes = useStyles();
+	const coins: ICoin[] = useAppSelector((state) => state.coinsReducer.coins);
 	const pricesFirst: ICoinsData = useAppSelector((state) => state.coinsReducer.pricesFirst);
 	const pricesSecond: ICoinsData = useAppSelector((state) => state.coinsReducer.pricesSecond);
 
@@ -106,10 +107,10 @@ export const LineGraphComponent: FC = (): JSX.Element => {
 		<Grid container>
 			<Grid item lg={12} sm={12} className={classes.selector}>
 				<Box className={classes.inputBox}>
-					<SelectComponent value={firstValue} onChange={handleChangeFirst} />
+					<SelectComponent options={coins} value={firstValue} onChange={handleChangeFirst} />
 				</Box>
 				<Box className={classes.inputBox}>
-					<SelectComponent value={secondValue} onChange={handleChangeSecond} />
+					<SelectComponent options={coins} value={secondValue} onChange={handleChangeSecond} />
 				</Box>
 			</Grid>
 			<Grid item lg={12} sm={12}>

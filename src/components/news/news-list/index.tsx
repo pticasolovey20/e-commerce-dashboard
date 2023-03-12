@@ -24,7 +24,7 @@ export const NewsListComponent: FC = (): JSX.Element => {
 
 	return (
 		<Box className={classes.root}>
-			{news.slice(0, 7).map((item: INewsData) => (
+			{news.map((item: INewsData) => (
 				<NewsItemComponent key={item.id} item={item} />
 			))}
 		</Box>

@@ -24,7 +24,7 @@ export const HomePage: FC = (): JSX.Element => {
 
 	return (
 		<LayoutPageComponent>
-			<Grid container spacing={4}>
+			<Grid container spacing={4} sx={{}}>
 				<Grid item lg={8}>
 					<Grid container>
 						<TemplateComponent lg={12} sm={12}>
