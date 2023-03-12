@@ -7,6 +7,7 @@ import { Grid } from "@mui/material";
 import { TemplateComponent } from "../../components/template";
 import { LineGraphComponent } from "../../components/line-graph";
 import { TopPriceComponent } from "../../components/top-price";
+import { NewsListComponent } from "../../components/news/news-list";
 
 export const HomePage: FC = (): JSX.Element => {
 	const dispatch = useAppDispatch();
@@ -24,7 +25,7 @@ export const HomePage: FC = (): JSX.Element => {
 	return (
 		<LayoutPageComponent>
 			<Grid container spacing={4}>
-				<Grid item lg={8.5}>
+				<Grid item lg={8}>
 					<Grid container>
 						<TemplateComponent lg={12} sm={12}>
 							<LineGraphComponent />
@@ -34,9 +35,11 @@ export const HomePage: FC = (): JSX.Element => {
 						</TemplateComponent>
 					</Grid>
 				</Grid>
-				<Grid item lg={3.5}>
+				<Grid item lg={4}>
 					<Grid container>
-						<TemplateComponent lg={12} height={855}></TemplateComponent>
+						<TemplateComponent lg={12}>
+							<NewsListComponent />
+						</TemplateComponent>
 					</Grid>
 				</Grid>
 			</Grid>

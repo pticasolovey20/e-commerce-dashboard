@@ -3,7 +3,8 @@ import { makeStyles } from "@mui/styles";
 export const useStyles = makeStyles({
 	root: {
 		display: "flex",
-		width: "90px",
+		width: "95px",
+		height: "30px",
 		alignItems: "center",
 		justifyContent: "center",
 		gap: "5px",
@@ -19,5 +20,9 @@ export const useStyles = makeStyles({
 	trendDown: {
 		backgroundColor: "#FFA7A7",
 		color: "#740000",
+	},
+	img: {
+		height: "20px",
+		width: "20px",
 	},
 });

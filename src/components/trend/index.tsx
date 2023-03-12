@@ -11,7 +11,11 @@ export const TrendComponent: FC<ITrendProps> = ({ value, symbol }: ITrendProps):
 
 	return (
 		<Box className={value > 0 ? `${classes.root} ${classes.trendUp}` : `${classes.root} ${classes.trendDown}`}>
-			{value > 0 ? <img src={TrendUp} alt="trend" /> : <img src={TrendDown} alt="trend" />}
+			{value > 0 ? (
+				<img src={TrendUp} alt="trend" className={classes.img} />
+			) : (
+				<img src={TrendDown} alt="trend" className={classes.img} />
+			)}
 			<Typography>{`${value}${symbol}`}</Typography>
 		</Box>
 	);

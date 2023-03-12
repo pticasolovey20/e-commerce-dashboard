@@ -1,5 +1,7 @@
 import { FC } from "react";
 
+import { LayoutPageComponent } from "../../components/layout-page";
+
 export const WatchListPage: FC = (): JSX.Element => {
-	return <div>WatchListPage</div>;
+	return <LayoutPageComponent></LayoutPageComponent>;
 };

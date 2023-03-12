@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { INewsData } from "../news";
 
 export interface IFormProps {
 	handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
@@ -53,4 +54,8 @@ export interface ITopBarProps {
 export interface ITrendProps {
 	value: any;
 	symbol: string;
+}
+
+export interface INewsItem {
+	item: INewsData;
 }
