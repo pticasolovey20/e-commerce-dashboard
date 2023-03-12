@@ -12,6 +12,8 @@ import {
 	MenuBookOutlined,
 	SettingsOutlined,
 	LogoutOutlined,
+	BookmarkBorderOutlined,
+	BookmarkOutlined,
 } from "@mui/icons-material";
 
 export const SvgSelectorComponent: FC<ISvgSelectorProps> = ({ icon }: ISvgSelectorProps): JSX.Element | null => {
@@ -48,6 +50,12 @@ export const SvgSelectorComponent: FC<ISvgSelectorProps> = ({ icon }: ISvgSelect
 
 		case "logout":
 			return <LogoutOutlined />;
+
+		case "pinned-no":
+			return <BookmarkBorderOutlined />;
+
+		case "pinned-yes":
+			return <BookmarkOutlined htmlColor="#fcbb14" />;
 
 		default:
 			return null;

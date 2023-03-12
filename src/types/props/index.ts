@@ -72,3 +72,7 @@ export interface ISelectProps {
 	value: string;
 	onChange: (event: SelectChangeEvent<string>) => void;
 }
+
+export interface ICoinItem {
+	coin: ICoin;
+}

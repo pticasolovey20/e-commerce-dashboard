@@ -19,7 +19,7 @@ export const useStyles = makeStyles((theme: Theme) => {
 		img: {
 			height: "100%",
 			width: "100%",
-			borderRadius: "20px",
+			borderRadius: "10px",
 		},
 
 		title: { fontSize: "16px", width: "80%" },

@@ -1,10 +1,10 @@
 import { makeStyles } from "@mui/styles";
 
 export const useStyles = makeStyles({
-	root: {
+	slider: {
 		display: "flex",
-		flexDirection: "column",
-		height: "790px",
+		flexWrap: "nowrap",
+		width: "1300px",
 		gap: "20px",
 		overflow: "scroll",
 		overflowX: "hidden",

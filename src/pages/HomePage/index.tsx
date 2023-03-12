@@ -8,6 +8,7 @@ import { TemplateComponent } from "../../components/template";
 import { LineGraphComponent } from "../../components/line-graph";
 import { TopPriceComponent } from "../../components/top-price";
 import { NewsListComponent } from "../../components/news/news-list";
+import { CoinsListComponent } from "../../components/coins/coins-list";
 
 export const HomePage: FC = (): JSX.Element => {
 	const dispatch = useAppDispatch();
@@ -27,6 +28,9 @@ export const HomePage: FC = (): JSX.Element => {
 			<Grid container spacing={4} sx={{}}>
 				<Grid item lg={8}>
 					<Grid container>
+						<TemplateComponent lg={12} sm={12}>
+							<CoinsListComponent />
+						</TemplateComponent>
 						<TemplateComponent lg={12} sm={12}>
 							<LineGraphComponent />
 						</TemplateComponent>

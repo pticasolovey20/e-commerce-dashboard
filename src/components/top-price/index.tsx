@@ -62,7 +62,9 @@ export const TopPriceComponent: FC = (): JSX.Element => {
 							<TableCell component="th" scope="row">
 								{coin.name}
 							</TableCell>
-							<TableCell align="right">{coin.current_price}$</TableCell>
+							<TableCell align="right">
+								{coin.current_price.toFixed(coin.current_price > 1000 ? 2 : 6)}$
+							</TableCell>
 							<TableCell>
 								<TrendComponent value={coin.price_change_percentage_24h.toFixed(2)} symbol={"%"} />
 							</TableCell>
